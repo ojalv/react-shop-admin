@@ -29,6 +29,7 @@ function useProvideAuth() {
 
     if (access_token) {
       const token = access_token.access_token;
+      // eslint-disable-next-line prettier/prettier
       Cookie.set('token', token, { expires: 5 });
       axios.defaults.headers.Authorization = `Bearer ${token}`;
       const { data: user } = await axios.get(endPoints.auth.profile);
